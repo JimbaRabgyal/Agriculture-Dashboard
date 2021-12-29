@@ -30,6 +30,8 @@ def load_data():
     df['Yield'] = (df['Production']*1000)/df['Area']
     assert isinstance(df, object)
     return df
+
+
 df = load_data()
 
 ##-------------------SIDEBARS-----------------------##
@@ -53,7 +55,18 @@ st.sidebar.markdown("---")
 ##---------------Crop Production Analysis---------------------------------##
 if dashboards == 'Crop Production Analysis':
     st.markdown("<h3 style='text-align: center; color: Black;'>Production and area trends analysis</h3>", unsafe_allow_html=True)
-    # st.markdown('---')
+    top_padding = 1
+    bottom_padding = 1
+    right_padding = 2
+    left_padding = 2
+    st.markdown(f""" <style>
+        .reportview-container .main .block-container{{
+            padding-top: {top_padding}rem;
+            padding-right: {right_padding}rem;
+            padding-left: {left_padding}rem;
+            padding-bottom: {bottom_padding}rem;
+        }} </style> """, unsafe_allow_html=True)
+    st.markdown('---')
     df['Year'] = df['Year']
     crops = st.selectbox(
         label="Select a crop",
@@ -86,8 +99,6 @@ if dashboards == 'Crop Production Analysis':
         # go.Scatter(name='Area Trend', x=df_selection['Year'], y=df_selection['Area'])
 
     fig.update_layout(
-        width=1200,
-        height=600,
         paper_bgcolor='#F0FFF0',
         plot_bgcolor='#F0FFF0',
         xaxis_title="Year",
@@ -97,7 +108,7 @@ if dashboards == 'Crop Production Analysis':
     # Set y-axes titles
     fig.update_yaxes(title_text="<b>Production (MT) & Area (Acre)</b>", secondary_y=False)
     fig.update_yaxes(title_text="<b>Yield (Kg/Acre)</b>", secondary_y=True)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
     #Expander for optional sections
     options = st.expander("Expand to see more", False)
@@ -149,6 +160,18 @@ if dashboards == 'Crop Production Analysis':
 ##--------------Export and Import Analysis---------------------------------##
 if dashboards == 'Export and Import Analysis':
     st.markdown("<h3 style='text-align: center; color: Black;'>Export and import nalysis</h3>", unsafe_allow_html=True)
+    top_padding = 1
+    bottom_padding = 1
+    right_padding = 2
+    left_padding = 2
+    st.markdown(f""" <style>
+            .reportview-container .main .block-container{{
+                padding-top: {top_padding}rem;
+                padding-right: {right_padding}rem;
+                padding-left: {left_padding}rem;
+                padding-bottom: {bottom_padding}rem;
+            }} </style> """, unsafe_allow_html=True)
+    st.markdown("---")
     df['Year'] = df['Year']
     crops = st.selectbox(
         label="Select a crop",
@@ -176,8 +199,6 @@ if dashboards == 'Export and Import Analysis':
 
     fig.update_layout(
         barmode = 'group',
-        width=1200,
-        height=600,
         paper_bgcolor='#F5F5DC',
         plot_bgcolor='#F5F5DC',
         xaxis_title="Year",
@@ -186,7 +207,7 @@ if dashboards == 'Export and Import Analysis':
     )
     # Set y-axes titles
     fig.update_yaxes(title_text="<b>Export and Import (MT)</b>")
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
     #Expander for optional sections
     options = st.expander("Expand to see more", False)
@@ -233,6 +254,18 @@ if dashboards == 'Export and Import Analysis':
 ##------------------Self fufficiency rate and IDR---------------------------------##
 if dashboards == 'Self Sufficiency Analysis':
     st.markdown("<h3 style='text-align: center; color: Black;'>Self Sufficiency Analysis</h3>", unsafe_allow_html=True)
+    top_padding = 1
+    bottom_padding = 1
+    right_padding = 2
+    left_padding = 2
+    st.markdown(f""" <style>
+            .reportview-container .main .block-container{{
+                padding-top: {top_padding}rem;
+                padding-right: {right_padding}rem;
+                padding-left: {left_padding}rem;
+                padding-bottom: {bottom_padding}rem;
+            }} </style> """, unsafe_allow_html=True)
+    st.markdown("---")
     df['Year'] = df['Year']
     crops = st.selectbox(
         label="Select a crop",
@@ -268,8 +301,6 @@ if dashboards == 'Self Sufficiency Analysis':
     )
 
     fig.update_layout(
-        width=1200,
-        height=600,
         paper_bgcolor='#FFF0F5',
         plot_bgcolor='#FFF0F5',
         xaxis_title="<b>Year<b>",
@@ -280,7 +311,7 @@ if dashboards == 'Self Sufficiency Analysis':
     # Set y-axes titles
     fig.update_yaxes(title_text="<b>SSR (%) and DES (kcal/day)</b>", secondary_y=False)
     fig.update_yaxes(title_text="<b>IDR (%)</b>", secondary_y=True)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
     #Expander for optional sections
     options = st.expander("Expand to see more", False)
