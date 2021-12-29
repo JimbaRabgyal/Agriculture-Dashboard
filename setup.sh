@@ -12,11 +12,4 @@ headless = true\n\
 \n\
 " > ~/.streamlit/config.toml
 
-echo "[theme]
-primaryColor="#35793b"
-backgroundColor="#ccdede"
-secondaryBackgroundColor="#99cccc"
-textColor="#010100"
-" > ~/.streamlit/config.toml
-
 
