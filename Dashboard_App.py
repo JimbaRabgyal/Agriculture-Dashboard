@@ -54,7 +54,7 @@ st.sidebar.markdown("---")
 
 ##---------------Crop Production Analysis---------------------------------##
 if dashboards == 'Crop Production Analysis':
-    st.markdown("<h3 style='text-align: center; color: white;'>Production and area trends analysis</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: Black;'>Production and area trends analysis</h3>", unsafe_allow_html=True)
     top_padding = 1
     bottom_padding = 1
     right_padding = 2
@@ -159,7 +159,7 @@ if dashboards == 'Crop Production Analysis':
 
 ##--------------Export and Import Analysis---------------------------------##
 if dashboards == 'Export and Import Analysis':
-    st.markdown("<h3 style='text-align: center; color: white;'>Export and import nalysis</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: Black;'>Export and import nalysis</h3>", unsafe_allow_html=True)
     top_padding = 1
     bottom_padding = 1
     right_padding = 2
@@ -253,7 +253,7 @@ if dashboards == 'Export and Import Analysis':
 
 ##------------------Self fufficiency rate and IDR---------------------------------##
 if dashboards == 'Self Sufficiency Analysis':
-    st.markdown("<h3 style='text-align: center; color: white;'>Self Sufficiency Analysis</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: Black;'>Self Sufficiency Analysis</h3>", unsafe_allow_html=True)
     top_padding = 1
     bottom_padding = 1
     right_padding = 2
