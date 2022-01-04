@@ -65,7 +65,7 @@ if dashboards == 'Crop Production Analysis':
         }} </style> """, unsafe_allow_html=True)
     st.markdown('---')
     crops = st.selectbox(
-        label="Crop Filter",
+        label="Select a crop",
         options=df['Crop'].unique())
 
     ##---------SLECTION DATAFRAME-------------------##
@@ -94,6 +94,7 @@ if dashboards == 'Crop Production Analysis':
     )
 
     fig.update_layout(
+        xaxis=dict(tickmode='linear'),
         paper_bgcolor='#F0FFF0',
         plot_bgcolor='#F0FFF0',
         xaxis_title="Year",
@@ -192,6 +193,7 @@ if dashboards == 'Export and Import Analysis':
     )
 
     fig.update_layout(
+        xaxis=dict(tickmode='linear'),
         barmode = 'group',
         paper_bgcolor='#F5F5DC',
         plot_bgcolor='#F5F5DC',
@@ -288,6 +290,7 @@ if dashboards == 'Self Sufficiency Analysis':
     )
 
     fig.update_layout(
+        xaxis=dict(tickmode='linear'),
         paper_bgcolor='#FFF0F5',
         plot_bgcolor='#FFF0F5',
         xaxis_title="<b>Year<b>",
