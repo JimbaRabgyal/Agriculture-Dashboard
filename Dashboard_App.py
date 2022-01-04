@@ -49,6 +49,11 @@ st.sidebar.markdown(
 )
 st.sidebar.markdown("---")
 
+st.sidebar.markdown("<b>Contributed by:</b>", unsafe_allow_html=True)
+st.sidebar.markdown("<p><i>Lakey, ARED and Jimba, NCOA</i></p>", unsafe_allow_html=True)
+st.sidebar.write("Github resources [link](https://github.com/JimbaRabgyal/Agriculture-Dashboard)")
+st.sidebar.markdown("---")
+
 ##---------------Crop Production Analysis---------------------------------##
 if dashboards == 'Crop Production Analysis':
     st.markdown("<h3 style='text-align: center; color: Black;'>Production and area trends analysis</h3>", unsafe_allow_html=True)
@@ -97,9 +102,10 @@ if dashboards == 'Crop Production Analysis':
         xaxis=dict(tickmode='linear'),
         paper_bgcolor='#F0FFF0',
         plot_bgcolor='#F0FFF0',
-        xaxis_title="Year",
+        xaxis_title="<b>Year<b>",
         legend_title="<b>Legend<b>",
-        hovermode="x", bargap=0.1
+        hovermode="x",
+        bargap=0.1
     )
     # Set y-axes titles
     fig.update_yaxes(title_text="<b>Production (MT) & Area (Acre)</b>", secondary_y=False)
@@ -140,7 +146,7 @@ if dashboards == 'Crop Production Analysis':
         height=600,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
-        xaxis_title="Year",
+        xaxis_title="<b>Year<b>",,
         legend_title="<b>Legend<b>",
         hovermode="x", bargap=0.1
     )
@@ -197,7 +203,7 @@ if dashboards == 'Export and Import Analysis':
         barmode = 'group',
         paper_bgcolor='#F5F5DC',
         plot_bgcolor='#F5F5DC',
-        xaxis_title="Year",
+        xaxis_title="<b>Year<b>",
         legend_title="<b>Legend<b>",
         hovermode="x", bargap=0.1
     )
@@ -236,7 +242,7 @@ if dashboards == 'Export and Import Analysis':
             height=600,
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)',
-            xaxis_title="Year",
+            xaxis_title="<b>Year<b>",
             legend_title="<b>Legend<b>",
             hovermode="x", bargap=0.1
         )
@@ -294,12 +300,11 @@ if dashboards == 'Self Sufficiency Analysis':
         paper_bgcolor='#FFF0F5',
         plot_bgcolor='#FFF0F5',
         xaxis_title="<b>Year<b>",
-        yaxis_title="<b>SSR & IDR (%)<b>",
         legend_title="<b>Legend<b>",
         hovermode="x"
     )
     # Set y-axes titles
-    fig.update_yaxes(title_text="<b>SSR (%) and DES (kcal/day)</b>", secondary_y=False)
+    fig.update_yaxes(title_text="<b>SSR (%)</b>", secondary_y=False)
     fig.update_yaxes(title_text="<b>IDR (%)</b>", secondary_y=True)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -338,7 +343,7 @@ if dashboards == 'Self Sufficiency Analysis':
             paper_bgcolor='#FFF0F5',
             plot_bgcolor='#FFF0F5',
             xaxis_title="Year",
-            yaxis_title="SSR & IDR (%)",
+            yaxis_title="SSR (%)",
             legend_title="<b>Legend<b>",
             hovermode="x"
         )
