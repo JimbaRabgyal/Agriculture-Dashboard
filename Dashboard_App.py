@@ -27,7 +27,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.cache(persist=True)
 def load_data():
     df = pd.read_csv('data.csv')
-    df['Yield'] = (df['Production']*1000)/df['Area']
     assert isinstance(df, object)
     return df
 
@@ -50,8 +49,6 @@ st.sidebar.markdown(
 )
 st.sidebar.markdown("---")
 
-##################### This is the end for the day***************
-
 ##---------------Crop Production Analysis---------------------------------##
 if dashboards == 'Crop Production Analysis':
     st.markdown("<h3 style='text-align: center; color: Black;'>Production and area trends analysis</h3>", unsafe_allow_html=True)
@@ -67,9 +64,8 @@ if dashboards == 'Crop Production Analysis':
             padding-bottom: {bottom_padding}rem;
         }} </style> """, unsafe_allow_html=True)
     st.markdown('---')
-    df['Year'] = df['Year']
     crops = st.selectbox(
-        label="Select a crop",
+        label="Crop Filter",
         options=df['Crop'].unique())
 
     ##---------SLECTION DATAFRAME-------------------##
@@ -96,7 +92,6 @@ if dashboards == 'Crop Production Analysis':
                    line = dict(shape = 'spline')),
         secondary_y=True
     )
-        # go.Scatter(name='Area Trend', x=df_selection['Year'], y=df_selection['Area'])
 
     fig.update_layout(
         paper_bgcolor='#F0FFF0',
@@ -172,7 +167,6 @@ if dashboards == 'Export and Import Analysis':
                 padding-bottom: {bottom_padding}rem;
             }} </style> """, unsafe_allow_html=True)
     st.markdown("---")
-    df['Year'] = df['Year']
     crops = st.selectbox(
         label="Select a crop",
         options=df['Crop'].unique())
@@ -266,7 +260,6 @@ if dashboards == 'Self Sufficiency Analysis':
                 padding-bottom: {bottom_padding}rem;
             }} </style> """, unsafe_allow_html=True)
     st.markdown("---")
-    df['Year'] = df['Year']
     crops = st.selectbox(
         label="Select a crop",
         options=df['Crop'].unique())
@@ -285,12 +278,6 @@ if dashboards == 'Self Sufficiency Analysis':
                    y=df_selection['SSR'],
                    line=dict(shape='spline'))
     )
-
-    fig.add_trace(
-        go.Scatter(name = 'DES (Per Capita)',
-                   x=df_selection['Year'],
-                   y = df_selection['DES'],
-                   line=dict(shape='spline')))
 
     fig.add_trace(
         go.Scatter(name='IDR (%)',
